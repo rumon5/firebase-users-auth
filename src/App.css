@@ -11,6 +11,8 @@
   align-items: center;
 }
 
+/* Facebook auth container styles */
+
 .facebook-auth-container {
   background-color: #161815;
   padding: 15px 25px;
@@ -30,6 +32,34 @@
 .facebook-auth-container button {
   border: none;
   background-color: #161815;
+  color: #ffffff;
+  font-weight: bolder;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Google auth container styles  */
+.google-auth-container {
+  margin-top: 10px;
+  background-color: #357ae8;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 250px;
+}
+
+.google-image {
+  width: 30px;
+  margin-right: 5px;
+
+}
+
+.google-auth-container button {
+  border: none;
+  background-color: #357ae8;
   color: #ffffff;
   font-weight: bolder;
   cursor: pointer;

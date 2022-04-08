@@ -1,3 +1,7 @@
+.text-green {
+  color: rgb(6, 237, 6);
+}
+
 .sign-in-form {
   width: 50%;
   margin: 0 auto;
@@ -11,11 +15,29 @@
   align-items: center;
 }
 
+/* Sign in With Email and password style */
+.sign-in-form .registered {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-in-form .registered .input {
+  width: 250px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 3px solid lightgray;
+  border-radius: 5px;
+}
+
 /* Facebook auth container styles */
 
 .facebook-auth-container {
+  margin-top: 6px;
   background-color: #161815;
-  padding: 15px 25px;
+  padding: 10px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +47,7 @@
 }
 
 .facebook-image {
-  width: 30px;
+  width: 20px;
   margin-right: 5px;
 }
 
@@ -42,7 +64,7 @@
 .google-auth-container {
   margin-top: 10px;
   background-color: #357ae8;
-  padding: 15px 25px;
+  padding: 10px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +74,7 @@
 }
 
 .google-image {
-  width: 30px;
+  width: 20px;
   margin-right: 5px;
 
 }

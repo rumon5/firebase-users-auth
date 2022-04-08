@@ -77,7 +77,7 @@ function App() {
         </div>
 
         {
-          registered ? <button>Log In</button> :
+          registered ? <button className='log-in-button'>LOG IN</button> :
             <div>
               <div onClick={handleFacebookEvent} className="facebook-auth-container">
                 <img className='facebook-image ' src={facebookImage} alt="" />
@@ -88,7 +88,7 @@ function App() {
                 <button>SIGN IN WITH GOOGLE</button>
               </div>
               <div>
-                <button>SIGN IN</button>
+                <button className='sign-in-button'>SIGN IN</button>
               </div>
             </div>
         }

@@ -2,6 +2,30 @@
   color: rgb(6, 237, 6);
 }
 
+.log-in-button {
+  border: none;
+  background-color: blueviolet;
+  color: #ffffff;
+  font-weight: bolder;
+  cursor: pointer;
+  padding: 15px 5px;
+  width: 274px;
+  border-radius: 5px;
+  margin-top: 8px;
+}
+
+.sign-in-button {
+  border: none;
+  background-color: blueviolet;
+  color: #ffffff;
+  font-weight: bolder;
+  cursor: pointer;
+  padding: 15px 5px;
+  width: 274px;
+  border-radius: 5px;
+  margin-top: 8px;
+}
+
 .sign-in-form {
   width: 50%;
   margin: 0 auto;
@@ -37,11 +61,11 @@
 .facebook-auth-container {
   margin-top: 6px;
   background-color: #161815;
-  padding: 10px 15px;
+  padding: 7px 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
   width: 250px;
 }
@@ -64,11 +88,11 @@
 .google-auth-container {
   margin-top: 10px;
   background-color: #357ae8;
-  padding: 10px 15px;
+  padding: 7px 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
   width: 250px;
 }

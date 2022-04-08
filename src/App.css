@@ -1,11 +1,37 @@
 .sign-in-form {
   width: 50%;
   margin: 0 auto;
-  background-color: lightgray;
+  background-color: #F7F6F5;
+  border-radius: 10px;
+  margin-top: 20px;
   padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.facebook-auth-container {
+  background-color: #161815;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 250px;
+}
 
 .facebook-image {
   width: 30px;
+  margin-right: 5px;
+}
+
+.facebook-auth-container button {
+  border: none;
+  background-color: #161815;
+  color: #ffffff;
+  font-weight: bolder;
+  cursor: pointer;
+  padding: 10px;
 }

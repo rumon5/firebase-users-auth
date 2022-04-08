@@ -21,11 +21,11 @@ const handleFacebookEvent = () => {
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <div className='sign-in-form'>
-        <div className="facebook-container">
+        <div onClick={handleFacebookEvent} className="facebook-auth-container">
           <img className='facebook-image ' src={Image} alt="" />
-          <button onClick={handleFacebookEvent}>Sign in with Facebook</button>
+          <button>SIGN IN WITH FACEBOOK</button>
         </div>
       </div>
     </div>

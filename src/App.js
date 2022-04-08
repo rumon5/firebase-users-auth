@@ -2,23 +2,56 @@ import './App.css';
 import app from './firebase.init';
 import facebookImage from './images/facebook.svg';
 import googleImage from './images/google.svg';
-import { FacebookAuthProvider, getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from 'react';
 
 const auth = getAuth(app);
 
 function App() {
   const [registered, setRegistered] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // Get email 
+  const getEmailEventHandler = event => {
+    setEmail(event.target.value)
+  }
+
+  // Get password 
+  const getPasswordEventHandler = event => {
+    setPassword(event.target.value);
+  }
+
+  // Handle sign up and log in with email and password 
+  const handleSignUpAndLogInWithEmailAndPassword = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(result => {
+        console.log(result.user);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
+  // Handle sign in and log in with email and password 
+  const handleSignInAndLogInWithEmailAndPassword = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(result => {
+        console.log(result.user);
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 
   const handleLogInAndSignUp = event => {
     setRegistered(event.target.checked);
-    console.log(event.target.checked);
   }
 
+  // Facebook authentication handler seating 
+  const facebookProvider = new FacebookAuthProvider();
   const handleFacebookEvent = () => {
 
-    // Facebook authentication handler seating 
-    const facebookProvider = new FacebookAuthProvider();
     signInWithPopup(auth, facebookProvider)
       .then(result => {
         console.log(result.user);
@@ -30,7 +63,7 @@ function App() {
 
   // Google authentication handler seating
   const googleProvider = new GoogleAuthProvider();
-  const handleGoogelEvent = () => {
+  const handleGoogleEvent = () => {
     signInWithPopup(auth, googleProvider)
       .then(result => {
         console.log(result.user);
@@ -48,20 +81,22 @@ function App() {
         <div className="get-user-info">
           <form>
             <div className='registered'>
-              {
+              {/* {
                 !registered ? <input
                   className='name- input'
                   type="text"
                   name="name"
                   id="name"
                   placeholder='Enter your name' /> : ''
-              }
+              } */}
               <input
+                onBlur={getEmailEventHandler}
                 className='email-input input'
                 type="email"
                 name="email" id="email"
                 placeholder='Enter your email' />
               <input
+                onBlur={getPasswordEventHandler}
                 className='password-input input'
                 type="password"
                 name="password"
@@ -77,18 +112,18 @@ function App() {
         </div>
 
         {
-          registered ? <button className='log-in-button'>LOG IN</button> :
+          registered ? <button onClick={handleSignInAndLogInWithEmailAndPassword} className='log-in-button'>LOG IN</button> :
             <div>
               <div onClick={handleFacebookEvent} className="facebook-auth-container">
                 <img className='facebook-image ' src={facebookImage} alt="" />
                 <button>SIGN IN WITH FACEBOOK</button>
               </div>
-              <div onClick={handleGoogelEvent} className="google-auth-container">
+              <div onClick={handleGoogleEvent} className="google-auth-container">
                 <img className='google-image ' src={googleImage} alt="" />
                 <button>SIGN IN WITH GOOGLE</button>
               </div>
               <div>
-                <button className='sign-in-button'>SIGN IN</button>
+                <button onClick={handleSignUpAndLogInWithEmailAndPassword} className='sign-in-button'>SIGN IN</button>
               </div>
             </div>
         }

@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import app from './firebase.init';
+import Image from './images/facebook.svg'
+import { FacebookAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+
+
+const auth = getAuth(app);
+
+const facebookProvider = new FacebookAuthProvider();
+
+const handleFacebookEvent = () => {
+  signInWithPopup(auth, facebookProvider)
+    .then(result => {
+      console.log(result.user);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+}
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='sign-in-form'>
+        <div className="facebook-container">
+          <img className='facebook-image ' src={Image} alt="" />
+          <button onClick={handleFacebookEvent}>Sign in with Facebook</button>
+        </div>
+      </div>
     </div>
   );
 }
